@@ -1,0 +1,53 @@
+.fedmed-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--sp-4);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+  border: 1px solid var(--border-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.fedmed-card--default {
+  border-color: var(--border-default);
+}
+
+.fedmed-card--node-a {
+  border-color: var(--node-a-border);
+  box-shadow: var(--shadow-node-a);
+}
+
+.fedmed-card--node-b {
+  border-color: var(--node-b-border);
+  box-shadow: var(--shadow-node-b);
+}
+
+.fedmed-card--node-c {
+  border-color: var(--node-c-border);
+  box-shadow: var(--shadow-node-c);
+}
+
+.fedmed-card--aggregator {
+  border-color: var(--agg-color);
+  box-shadow: var(--shadow-agg);
+}
+
+.fedmed-card--interactive:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-bg-card-hover);
+  box-shadow: var(--shadow-card-hover);
+  cursor: pointer;
+}
+
+.fedmed-card--interactive.fedmed-card--node-a:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(15, 200, 200, 0.3), 0 0 0 1px var(--node-a-color);
+}
+
+.fedmed-card--interactive.fedmed-card--node-b:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.3), 0 0 0 1px var(--node-b-color);
+}
+
+.fedmed-card--interactive.fedmed-card--node-c:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.3), 0 0 0 1px var(--node-c-color);
+}

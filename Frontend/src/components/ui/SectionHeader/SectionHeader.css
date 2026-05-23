@@ -1,0 +1,38 @@
+.fedmed-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+.fedmed-section-header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-teal-400);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fedmed-section-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fedmed-section-header__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+.fedmed-section-header__subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: var(--leading-tight);
+}

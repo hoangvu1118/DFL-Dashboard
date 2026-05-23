@@ -1,0 +1,101 @@
+.fedmed-node-card {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  position: absolute !important;
+  z-index: 4;
+  user-select: none;
+}
+
+.fedmed-node-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.fedmed-node-card__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.fedmed-node-card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 2px solid rgba(255, 255, 255, 0.04);
+}
+
+.fedmed-node-card__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.fedmed-node-card__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fedmed-node-card__code {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.fedmed-node-card__name {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+
+.fedmed-node-card__status-row {
+  margin-top: -2px;
+}
+
+.fedmed-node-card__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.fedmed-node-card__metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fedmed-node-card__metric-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.fedmed-node-card__metric-value {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.fedmed-node-card__metric-value--mono {
+  font-family: var(--font-mono);
+}
+
+/* Position nodes as per visual layout */
+.fedmed-node-card--active {
+  z-index: 10;
+}

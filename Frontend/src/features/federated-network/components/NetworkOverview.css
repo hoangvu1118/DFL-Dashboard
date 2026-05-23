@@ -1,0 +1,19 @@
+.fedmed-network-overview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--color-bg-base);
+}
+
+.fedmed-network-overview__node-wrapper {
+  position: absolute;
+  z-index: 4;
+}
+
+@media (max-width: 1024px) {
+  .fedmed-network-overview {
+    min-height: 480px;
+  }
+}

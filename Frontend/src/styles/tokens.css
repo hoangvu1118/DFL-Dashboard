@@ -1,0 +1,141 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   FedMed Design Tokens — Dark Clinical Premium Dashboard
+   Antigravity Design System
+───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* ── Light Mode Palette ───────────────────────────── */
+  --color-bg-base:         #f3f6f9;   /* Clean clinical light gray background */
+  --color-bg-surface:      #ffffff;   /* Pure white side panel and header */
+  --color-bg-card:         #ffffff;   /* Pure white cards */
+  --color-bg-card-hover:   #fafbfd;   /* Off-white card hover state */
+  --color-bg-input:        #f8fafc;   /* Subtle input background */
+  --color-bg-metrics:      #eef2f6;   /* Soft slate bottom metrics strip */
+  /* ── Vivid Accent Colors for Light Background ────── */
+  --color-teal-600:        #0891b2;
+  --color-teal-500:        #0d9488;   /* Darker teal for legibility */
+  --color-teal-400:        #0d9488;
+  --color-teal-300:        #115e59;
+  --color-teal-200:        #ccfbf1;
+  --color-teal-glow:       rgba(13, 148, 136, 0.08);
+  --color-teal-glow-sm:    rgba(13, 148, 136, 0.05);
+  /* Cyan accent */
+  --color-cyan-500:        #0891b2;
+  --color-cyan-400:        #0e7490;
+  --color-cyan-glow:       rgba(8, 145, 178, 0.12);
+  /* Green accent */
+  --color-green-500:       #059669;
+  --color-green-400:       #047857;
+  --color-green-300:       #065f46;
+  --color-green-glow:      rgba(5, 150, 105, 0.08);
+  /* Purple accent */
+  --color-purple-500:      #7c3aed;
+  --color-purple-400:      #6d28d9;
+  --color-purple-300:      #5b21b6;
+  --color-purple-glow:     rgba(124, 58, 237, 0.08);
+  /* Orange accent */
+  --color-orange-500:      #f97316;
+  --color-orange-400:      #fb923c;
+  --color-orange-300:      #fdba74;
+  --color-orange-glow:     rgba(249, 115, 22, 0.08);
+
+  /* Node-specific accents */
+  --node-a-color:          var(--color-teal-500);
+  --node-a-glow:           var(--color-teal-glow);
+  --node-a-border:         rgba(13, 148, 136, 0.25);
+  --node-b-color:          var(--color-orange-500);
+  --node-b-glow:           var(--color-orange-glow);
+  --node-b-border:         rgba(249, 116, 22, 0.497);
+  --node-c-color:          var(--color-purple-500);
+  --node-c-glow:           var(--color-purple-glow);
+  --node-c-border:         rgba(124, 58, 237, 0.25);
+  --agg-color:             var(--color-cyan-500);
+  --agg-glow:              var(--color-cyan-glow);
+  /* ── Text (Optimized for Light Mode Contrast) ─────── */
+  --text-primary:          #0f172a;   /* Slate 900 for absolute readability */
+  --text-secondary:        #475569;   /* Slate 600 for labels and subtitles */
+  --text-tertiary:         #94a3b8;   /* Slate 400 */
+  --text-accent-teal:      var(--color-teal-500);
+  --text-accent-green:     var(--color-green-500);
+  --text-accent-purple:    var(--color-purple-500);
+  --text-accent-cyan:      var(--color-cyan-500);
+
+  /* ── Borders ──────────────────────────────────────── */
+  --border-subtle:         rgba(255, 255, 255, 0.05);
+  --border-default:        rgba(255, 255, 255, 0.08);
+  --border-emphasis:       rgba(255, 255, 255, 0.14);
+
+  /* ── Typography ───────────────────────────────────── */
+  --font-sans:             'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:             'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs:               0.6875rem;   /* 11px */
+  --text-sm:               0.75rem;     /* 12px */
+  --text-base:             0.8125rem;   /* 13px */
+  --text-md:               0.875rem;    /* 14px */
+  --text-lg:               1rem;        /* 16px */
+  --text-xl:               1.125rem;    /* 18px */
+  --text-2xl:              1.375rem;    /* 22px */
+  --text-3xl:              1.75rem;     /* 28px */
+
+  --leading-tight:         1.2;
+  --leading-snug:          1.4;
+  --leading-normal:        1.6;
+
+  /* ── Spacing ──────────────────────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  /* ── Radius ───────────────────────────────────────── */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  18px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────── */
+  --shadow-card:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 0 0 1px var(--border-subtle),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  --shadow-card-hover:
+    0 4px 20px rgba(0, 0, 0, 0.55),
+    0 0 0 1px var(--border-default),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  --shadow-node-a:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 16px var(--color-teal-glow),
+    0 0 0 1px var(--node-a-border);
+
+  --shadow-node-b:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 16px var(--color-green-glow),
+    0 0 0 1px var(--node-b-border);
+
+  --shadow-node-c:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 16px var(--color-purple-glow),
+    0 0 0 1px var(--node-c-border);
+
+  --shadow-agg:
+    0 0 0 2px var(--agg-color),
+    0 0 32px var(--agg-glow),
+    0 4px 24px rgba(0, 0, 0, 0.5);
+
+  /* ── Transitions ──────────────────────────────────── */
+  --transition-fast:   150ms ease-out;
+  --transition-base:   250ms ease-out;
+  --transition-slow:   400ms ease-out;
+}

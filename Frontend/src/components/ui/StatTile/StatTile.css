@@ -1,0 +1,51 @@
+.fedmed-stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-3) var(--sp-4);
+  border-right: 1px solid var(--border-subtle);
+  flex: 1;
+  min-width: 120px;
+}
+
+.fedmed-stat-tile:last-child {
+  border-right: none;
+}
+
+.fedmed-stat-tile__label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.fedmed-stat-tile__value {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+.fedmed-stat-tile__value--mono {
+  font-family: var(--font-mono);
+}
+
+/* Accent Colors */
+.fedmed-stat-tile--teal .fedmed-stat-tile__value {
+  color: var(--color-teal-400);
+}
+
+.fedmed-stat-tile--green .fedmed-stat-tile__value {
+  color: var(--color-green-400);
+}
+
+.fedmed-stat-tile--purple .fedmed-stat-tile__value {
+  color: var(--color-purple-400);
+}
+
+.fedmed-stat-tile--cyan .fedmed-stat-tile__value {
+  color: var(--color-cyan-400);
+}
