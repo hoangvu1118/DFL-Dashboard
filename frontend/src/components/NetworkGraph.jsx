@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import axios from "axios";
 import { initTopologyGraph } from "../topologyGraph";
 import NodeSidebar from "./NodeSidebar";
+import ChatSidebar from "./ChatSidebar";
 
 const API_BASE = "http://localhost:8080/api"; // Spring Boot URL
 const POLL_MS = 3000;
@@ -164,13 +165,17 @@ export default function NetworkGraph() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%", display: "flex" }}>
+      {/* Left: Node detail sidebar (slides in on node click, absolute positioned) */}
       <NodeSidebar
         nodeId={selectedNodeId}
         data={sidebarData}
         loading={sidebarLoading}
         onClose={closeSidebar}
       />
-      <div ref={containerRef} style={{ flex: 1, height: "100%", transition: "margin-left 0.3s ease" }} />
+      {/* Centre: D3 graph canvas */}
+      <div ref={containerRef} style={{ flex: 1, height: "100%" }} />
+      {/* Right: Bootstrap predict chat sidebar (always open) */}
+      <ChatSidebar />
     </div>
   );
 }

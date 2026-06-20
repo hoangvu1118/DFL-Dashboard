@@ -49,4 +49,12 @@ public class NetworkController {
         return proxy.postPredict(host, gossipPort, request)
                 .map(ResponseEntity::ok);
     }
+
+    // New endpoint: predict via the bootstrap server only
+    @PostMapping("/bootstrap/predict")
+    public Mono<ResponseEntity<PredictResponse>> bootstrapPredict(
+            @RequestBody PredictRequest request) {
+        return proxy.postBootstrapPredict(request)
+                .map(ResponseEntity::ok);
+    }
 }

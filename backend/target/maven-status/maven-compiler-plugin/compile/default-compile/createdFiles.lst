@@ -1,0 +1,8 @@
+com\example\dfl\dto\StatusResponse.class
+com\example\dfl\dto\AdjacencyResponse.class
+com\example\dfl\config\CorsConfig.class
+com\example\dfl\service\PythonProxyService.class
+com\example\dfl\DflApplication.class
+com\example\dfl\dto\PredictResponse.class
+com\example\dfl\controller\NetworkController.class
+com\example\dfl\dto\PredictRequest.class
