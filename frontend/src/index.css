@@ -1,0 +1,367 @@
+/* Light theme color definitions */
+:root {
+  --node-phase1: #5591c7; /* retain original node colors */
+  --node-phase2: #4f98a3;
+  --node-phase3: #e8af34;
+  --node-phase4: #a86fdf;
+  --node-dead: #393836;
+  --node-bootstrap-badge: #e8af34;
+  --edge-default: #393836;
+  --edge-ring: #4f98a3;
+  --hospital-cross: #ffffff;
+  /* Light theme UI colors */
+  --color-border: #e5e4e7;
+  --color-text-muted: #6b6375;
+  --color-surface: #ffffff;
+}
+
+body, html, #root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff; /* light background */
+  background-image: none;
+  color: #000000; /* dark text */
+}
+
+.topology-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.topology-svg {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.topology-svg:active {
+  cursor: grabbing;
+}
+
+  .status-chip {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(240, 240, 240, 0.8);
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #000000;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    z-index: 10;
+  }
+
+  .tooltip-card {
+    position: absolute;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #000000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    white-space: nowrap;
+  }
+
+.tooltip-card.visible {
+  opacity: 1;
+}
+
+.tooltip-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 4px;
+  color: #fff;
+}
+
+.tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.tooltip-row .label {
+  color: var(--color-text-muted);
+}
+
+.edge-animated {
+  stroke-dasharray: 6;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+.node-label {
+  fill: var(--color-text-muted);
+  font-size: 10px;
+  font-family: monospace;
+  pointer-events: none;
+  user-select: none;
+}
+
+.node-label-bg {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 1px;
+}
+
+/* ============================================================
+   NODE DETAIL SIDEBAR
+   ============================================================ */
+
+.node-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.97);
+  border-right: 1px solid rgba(51, 65, 85, 0.6);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  font-family: 'Courier New', Courier, monospace;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+.node-sidebar--open {
+  transform: translateX(0);
+}
+
+/* Header */
+.ns-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+  background: rgba(30, 41, 59, 0.9);
+  flex-shrink: 0;
+}
+
+.ns-header-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.ns-node-id {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  word-break: break-all;
+  line-height: 1.4;
+  max-width: 260px;
+}
+
+.ns-close-btn {
+  background: rgba(51, 65, 85, 0.4);
+  border: 1px solid rgba(71, 85, 105, 0.4);
+  color: #94a3b8;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.ns-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Scrollable content */
+.ns-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ns-content::-webkit-scrollbar { width: 4px; }
+.ns-content::-webkit-scrollbar-track { background: transparent; }
+.ns-content::-webkit-scrollbar-thumb { background: rgba(71, 85, 105, 0.5); border-radius: 2px; }
+
+/* Sections */
+.ns-section {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.ns-section-title {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+  padding-bottom: 6px;
+  font-weight: 600;
+}
+
+.ns-section-body { /* default passthrough */ }
+
+/* Stat grid */
+.ns-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.ns-stat-item {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+.ns-stat-label {
+  color: #64748b;
+  font-size: 0.68rem;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ns-stat-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #38bdf8;
+  word-break: break-all;
+}
+
+.ns-stat-value.ns-bootstrap { color: #a78bfa; }
+.ns-stat-value.ns-worker    { color: #4ade80; }
+
+/* Tag pills */
+.ns-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ns-tag {
+  display: inline-block;
+  background: rgba(51, 65, 85, 0.5);
+  border: 1px solid rgba(71, 85, 105, 0.4);
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+.ns-tag.ns-tag-self {
+  background: linear-gradient(45deg, #92400e, #78350f);
+  border-color: #f59e0b;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.ns-empty {
+  color: #475569;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Rumor log */
+.ns-rumor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.ns-rumor-list::-webkit-scrollbar { width: 3px; }
+.ns-rumor-list::-webkit-scrollbar-thumb { background: rgba(71, 85, 105, 0.5); border-radius: 2px; }
+
+.ns-rumor-entry {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 4px 6px;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.2);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.7rem;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.ns-rumor-entry:last-child { border-bottom: none; }
+
+.ns-rumor-time    { color: #475569; min-width: 64px; flex-shrink: 0; }
+.ns-rumor-origin  { color: #cbd5e1; min-width: 60px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; }
+.ns-rumor-payload { color: #64748b; font-size: 0.65rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+
+.ns-rumor-type {
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.65rem;
+  min-width: 60px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.ns-rumor-heartbeat { background: #1e3a5f; color: #60a5fa; }
+.ns-rumor-join      { background: #1e3a2f; color: #4ade80; }
+.ns-rumor-ready     { background: #3a2e1e; color: #facc15; }
+.ns-rumor-no_model  { background: #3a1e2e; color: #f87171; }
+
+/* Dataset rows */
+.ns-dataset-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+}
+.ns-dataset-size { color: #38bdf8; font-weight: 700; }
+.ns-dataset-unit { color: #475569; font-size: 0.68rem; }
+
+/* Loading */
+.ns-loading {
+  padding: 24px 16px;
+  color: #475569;
+  font-size: 0.8rem;
+  text-align: center;
+  flex: 1;
+}
+
